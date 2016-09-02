@@ -1,4 +1,4 @@
-== Hello World
+== Securing a Servlet Application: Hello World
 
 The purpose of this guide is to get you up and running as quickly as possible so that you can play with and test drive various authorization features provided by {{book.project.name}}.
 This quick tour relies heavily on the default out-of-the-box database and server configuration and does not cover complex deployment options.
