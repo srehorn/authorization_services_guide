@@ -4,10 +4,10 @@ Before going further, it is important to understand some terms and concepts intr
 
 ==== Resource Server
 
-If you are familiar with OAuth2, a Resource Server is the server hosting the protected resources and capable of accepting and responding to protected resource requests.
+Per OAuth2 terminology, a Resource Server is the server hosting the protected resources and capable of accepting and responding to protected resource requests.
 
 Resource servers usually rely on some kind of information to decide whether access to a protected resource should be granted or not. For RESTful-based resource servers,
-that information is usually obtained from a security token, usually sent as a bearer token on every single request to the server. Web applications that rely on a session to
+that information is usually carried in a security token, typically sent as a bearer token along with every request to the server. Web applications that rely on a session to
 authenticate their users usually store that information in the user's session and retrieve it from there on every request.
 
 In Keycloak, any *confidential* client application may act as a resource server. This client's resources and their respective scopes are
@@ -18,13 +18,13 @@ protected and ruled by a set of authorization policies.
 A resource is part of the assets of an application and the organization. It can be a set of one or more endpoints, a classic web resource such as an HTML page, and so on.
 In authorization policy terminology, a resource is the _object_ being protected.
 
-Every single resource has a unique identifier which may represent a single
+Every single resource has a unique identifier which may represent a single resource 
 or a set of resources. For instance, you may want to manage a _Banking Account Resource_ that represents and defines a set of authorization policies for all banking accounts.
-But you may also have a different resource named _Alice Banking Account_, which represents a single resource owned by a single customer, which may have its own set of authorization policies.
+But you may also have a different resource named _Alice's Banking Account_, which represents a single resource owned by a single customer, which may have its own set of authorization policies.
 
 ==== Scope
 
-A bounded extent of access that is possible to perform on a resource. In authorization policy
+A resource's scope is a bounded extent of access that is possible to perform on a resource. In authorization policy
 terminology, a scope is one of the potentially many _verbs_ that can logically apply to a resource.
 
 Usually, a scope is defined as a URN that indicates what can be done with a given resource. Example of scopes are _urn:domain:resource:scope:view_,
@@ -42,15 +42,15 @@ A single scope may be associated with zero or more resources.
 
 Consider this simple and very common permission:
 
+A permission associates the object being protected with the policies that must be evaluated in order to decide whether or not access should be granted.
+
 * *X* CAN DO *Y* ON RESOURCE *Z*
 ** where ...
 *** *X* represents one or more Users, Roles, Groups or a combination of them. You can also use claims and context here ...
-*** *Y* represents an action to be performed. Eg.: write, view, etc
-*** *Z* represents a protected resource.
+*** *Y* represents an action to be performed. E.g., write, view, etc
+*** *Z* represents a protected resource, e.g., "/accounts".
 
-A permission associates the object being protected and the policies that must be evaluated in order to decide whether access should be granted or not.
-
-{{book.project.name}} provides a rich platform for building from the most simple to the very complex, rule-based dynamic permissions. It provides great flexibility and helps to:
+{{book.project.name}} provides a rich platform for building a range of permission strategies ranging from simple to very complex, rule-based dynamic permissions. It provides great flexibility and helps to:
 
 * Reduce code refactoring and permission management costs
 * Support a more flexible security model, helping you to easily adapt to changes in your security requirements
