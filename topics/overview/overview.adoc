@@ -1,5 +1,7 @@
 == Overview
 
+add an issue to gitbook editor so it will show the cwd.
+
 {{book.project.name}} supports fine-grained authorization policies and is able to mix and match different access control
 mechanisms such as:
 
