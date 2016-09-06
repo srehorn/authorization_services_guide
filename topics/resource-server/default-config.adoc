@@ -1,11 +1,11 @@
 == Default Configuration
 
-When you create a resource server, {{book.project.name}} creates a default configuration to your newly created resource server.
+When you create a resource server, {{book.project.name}} creates a default configuration for your newly created resource server.
 
 The default configuration consists of:
 
 * A default protected resource representing all resources in your application.
-* A policy that grants access only for users in the same _realm_ as the resource server.
+* A policy that grants access for users in the same _realm_ as the resource server.
 * A permission that governs access to all resources based on the default policy.
 
 The default protected resource is called *Default Resource* and you can see it if you click on the `Resources` tab.
@@ -15,7 +15,7 @@ image:../../images/resource-server/default-resource.png[alt="Default Resource"]
 
 This resource defines a `Type` namely `urn:my-resource-server:resources:default` and a `URI` `/*`. Here, the `URI` field defines a
 wildcard pattern that tells {{book.project.name}} that this resource represents all the paths in your application. In other words,
-when enabling link:../enforcer/overview.html[Policy Enforcement] to your application, all the permissions associated with the resource
+when enabling link:../enforcer/overview.html[Policy Enforcement] for your application, all the permissions associated with the resource
 will be checked before granting access.
 
 The `Type` mentioned earlier defines a value that can be used to create link:../permission/typed-resource-permission.adoc[Typed Resource Permissions] that must be applied
