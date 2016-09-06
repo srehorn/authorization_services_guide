@@ -13,13 +13,13 @@ Click on the `Save` button to create the client. This should display the `Client
 .Client Details
 image:../../../images/getting-started/hello-world/enable-authz.png[alt="Client Details"]
 
-In this page, click on the `Authorization Services Enabled` switch and turn it `ON`, then click the `Save` button.
+In this page, click the `Authorization Services Enabled` switch and turn it `ON`, then click the `Save` button.
 After saving, a new `Authorization` tab will show up in the tab set for the client. Click on this tab and you should see a page similar to the following:
 
 .Authorization Settings
 image:../../../images/getting-started/hello-world/authz-settings.png[alt="Authorization Settings"]
 
-When you enable authorization services for a client application, {{book.project.name}} automatically creates some link:../../resource-server/default-config.html[Default Settings] for
+When you enable authorization services for a client application, {{book.project.name}} automatically creates several link:../../resource-server/default-config.html[Default Settings] for
 your client authorization configuration.
 
-For more details about authorization configuration, please take a look at link:../../resource-server/enable-authorization.html[Enabling Authorization Services].
+For more details about authorization configuration, please see link:../../resource-server/enable-authorization.html[Enabling Authorization Services].
