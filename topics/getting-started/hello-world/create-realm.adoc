@@ -20,10 +20,10 @@ Fill in the fields as shown below and click `Save`.
 .Add User
 image:../../../images/getting-started/hello-world/create-user.png[alt="Add User"]
 
-Next, set a password for the *alice* user. Click on the `Credentials` tab to display the `Credentials` page.
+Next, set a password for the *alice* user by clicking on the `Credentials` tab to display the `Credentials` page.
 
 .Set User Password
 image:../../../images/getting-started/hello-world/reset-user-pwd.png[alt="Set User Password"]
 
-Fill in the `New Password` and `Password Confirmation` fields with a password and click on the `Temporary` switch to turn it `OFF`. Lastly,
+Fill in the `New Password` and `Password Confirmation` fields with a password and click  the `Temporary` switch to turn it `OFF`. Lastly,
 click on the `Reset Password` button to set the user's password.
