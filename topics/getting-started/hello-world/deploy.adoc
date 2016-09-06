@@ -1,6 +1,6 @@
 == Build, Deploy and Test
 
-Now that the *hello-world-authz-service* is properly configured and authorization services are enabled, we can deploy it to
+Now that the *hello-world-authz-service* resource server (client) is properly configured and authorization services are enabled, we can deploy it to
 the server and see the results.
 
 === Generating the Adapter Configuration
@@ -11,7 +11,7 @@ click on the *hello-world-authz-service* client application. This will bring you
 .Client Details
 image:../../../images/getting-started/hello-world/enable-authz.png[alt="Client Details"]
 
-Click on the `Installation Tab`. From the `Format Option` dropdown, select `Keycloak OIDC JSON`. This will display the adapter configuration in JSON format. Copy the contents to the clipboard and create a file or use the Download button.
+Click on the `Installation Tab`. From the `Format Option` dropdown, select `Keycloak OIDC JSON`. This will display the adapter configuration in JSON format. Copy the contents to the clipboard and create a file or use the `Download` button.
 
 .Adapter Configuration
 image:../../../images/getting-started/hello-world/adapter-config.png[alt="Adapter Configuration"]
@@ -46,7 +46,7 @@ The first page you should see is the {{book.project.name}} Login Page.
 .Login Page
 image:../../../images/getting-started/hello-world/login-page.png[alt="Login Page"]
 
-Try to login as *alice* using the password you set up that user. After authenticating, you should see a page as follows:
+Try to login as *alice* using the password you set up for that user. After authenticating, you should see a page as follows:
 
 .Hello World Authz Main Page
 image:../../../images/getting-started/hello-world/main-page.png[alt="Hello World Authz Main Page"]
@@ -77,7 +77,7 @@ as we are just negating the result of that policy, which is by default denying a
 
 There are a lot of other things you can do from now on, such as:
 
-* Create a scope, define a policy and permission for it and check on the application side if the user is allowed to perform some action (or anything else represented by the scope you created)
-* Create different types of policies such as link:../../policy/role-policy.adoc[Role-Based], link:../../policy/user-policy.adoc[User-Based], link:../../policy/time-policy.adoc[Time-Based], link:../../policy/aggregated-policy.adoc[Aggregated Policies], link:../../policy/drools-policy.adoc[Drools-Based]. And associate these policies with the `Default Permission`
+* Create a scope, define a policy and permission for it, and check on the application side if the user is allowed to perform some action (or anything else represented by the scope you created)
+* Create different types of policies such as link:../../policy/role-policy.adoc[Role-Based], link:../../policy/user-policy.adoc[User-Based], link:../../policy/time-policy.adoc[Time-Based], link:../../policy/aggregated-policy.adoc[Aggregated Policies], link:../../policy/drools-policy.adoc[Drools-Based], and associate these policies with the `Default Permission`
 * Apply multiple policies to the `Default Permission` and check behavior. For instance, try to mix multiple policies and change the `Decision Strategy` accordingly
-* Checkout the link:../../enforcer/authorization-context.adoc[Obtaining the Authorization Context] topic for more details about how to check for permissions inside your application
+* Check out the link:../../enforcer/authorization-context.adoc[Obtaining the Authorization Context] topic for more details on how to check for permissions inside your application.
