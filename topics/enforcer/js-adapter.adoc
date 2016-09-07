@@ -1,6 +1,6 @@
 == JavaScript Integration
 
-The {{book.project.name}} Server comes with a Javascript library you can use to interact with a resource server protected by a policy enforcer. This library is based on the https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/oidc/javascript-adapter.html[Keycloak JavaScript Adapter], which means your client
+The {{book.project.name}} Server comes with a JavaScript library you can use to interact with a resource server protected by a policy enforcer. This library is based on the https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/oidc/javascript-adapter.html[Keycloak JavaScript Adapter], which means your client
 should be using it to authenticate against a {{book.project.name}} Server.
 
 You can obtain this library from a running {{book.project.name}} Server instance by including the following `script` tag in your web page:
