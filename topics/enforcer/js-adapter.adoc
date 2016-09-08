@@ -1,7 +1,6 @@
 == JavaScript Integration
 
-The {{book.project.name}} Server comes with a JavaScript library you can use to interact with a resource server protected by a policy enforcer. This library is based on the https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/oidc/javascript-adapter.html[Keycloak JavaScript Adapter], which means your client
-should be using it to authenticate against a {{book.project.name}} Server.
+The {{book.project.name}} Server comes with a JavaScript library you can use to interact with a resource server protected by a policy enforcer. This library is based on the https://keycloak.gitbooks.io/securing-client-applications-guide/content/topics/oidc/javascript-adapter.html[Keycloak JavaScript Adapter], which can be integrated to allow your client to authenticate against a {{book.project.name}} Server.
 
 You can obtain this library from a running {{book.project.name}} Server instance by including the following `script` tag in your web page:
 
@@ -11,36 +10,39 @@ You can obtain this library from a running {{book.project.name}} Server instance
 Once you do that, you can create a `KeycloakAuthorization` instance as follows:
 
 ```javascript
-var keycloak = // obtain a Keycloak instance from keycloak.js library
+var keycloak = ... // obtain a Keycloak instance from keycloak.js library
 var authorization = new KeycloakAuthorization(keycloak);
 ```
-The *keycloak-authz.js* library provides two main functionalities:
+The *keycloak-authz.js* library provides two main features:
 
-* Handle responses from a resource server protected by a link:overview.html[{{book.project.name}} Policy Enforcer] and obtain a RPT with the necessary permissions to gain access to
-the protected resources on the resource server
+* Handle responses from a resource server protected by a link:overview.html[{{book.project.name}} Policy Enforcer] and obtain a requesting party token (RPT) with the necessary permissions to gain access to
+the protected resources on the resource server. 
 
 ** In this case, the library can handle whatever authorization protocol the resource server is using: link:../service/authorization/authorization-api.html[UMA] or link:../service/entitlement/entitlement-api.html[Entitlements].
 
 * Obtain permissions from a {{book.project.name}} Server using the link:../service/entitlement/entitlement-api.html[Entitlement API]
 
-In both cases, the library allows you to easily interact with both resource server and {{book.project.name}} {{book.project.module}} in order to obtain tokens with the
-necessary permissions that your client can use as bearer tokens to access the protected resources on a resource server.
+In both cases, the library allows you to easily interact with both the resource server and {{book.project.name}} {{book.project.module}} to obtain tokens with permissions  your client can use as bearer tokens to access the protected resources on a resource server.
 
 === Handling Authorization Responses from a Resource Server
 
 If a resource server is protected by a policy enforcer, it will respond to client requests based on the permissions carried along with a link:keycloak-enforcement-bearer.html[bearer token].
-Usually, when you try to access a resource server with a bearer token that is lacking permissions to access a protected resource, the resource server
+Typically, when you try to access a resource server with a bearer token that is lacking permissions to access a protected resource, the resource server
 will respond with a *401* status code and a `WWW-Authenticate` header.
 
 The value of the `WWW-Authenticate` header depends on the authorization protocol in use by the resource server. Whatever protocol is in use, you can use a `KeycloakAuthorization` instance to
 handle responses as follows:
 
 ```javascript
-var wwwAuthenticateHeader = // extract WWW-Authenticate Header from the response in case of a 401 status code
+var wwwAuthenticateHeader = ... // extract WWW-Authenticate Header 
+                                // from the response in case of a 401 status code
 authorization.authorize(wwwAuthenticateHeader).then(function (rpt) {
-    // onGrant callback function. If authorization was successful you'll receive a RPT with the necessary permissions to access the resource server
+    // onGrant callback function. 
+    // If authorization was successful you'll receive a RPT
+    // with the necessary permissions to access the resource server
 }, function () {
-    // onDeny callback function. Called when the authorization request is denied by the server
+    // onDeny callback function. 
+    // Called when the authorization request is denied by the server
 }, function () {
     // onError callback function. Called when the server responds unexpectedly
 });
