@@ -50,32 +50,34 @@ authorization.authorize(wwwAuthenticateHeader).then(function (rpt) {
 
 The `authorize` function is completely asynchronous and supports a few callback functions in order to receive notifications from the server:
 
-* `onGrant`, is the first argument of the function. If authorization was successful and the server returned a RPT with the requested permissions, the callback will receive the RPT
-* `onDeny`, is the second argument of the function. Only called if the server has denied the authorization request
-* `onError`, is the third argument of the function. Only called if the server responds unexpectedly
+* `onGrant` - the first argument of the function. If authorization was successful and the server returned an RPT with the requested permissions, the callback will receive the RPT
+* `onDeny` - the second argument of the function. Only called if the server has denied the authorization request
+* `onError` - the third argument of the function. Only called if the server responds unexpectedly
 
-Most applications would use the `onGrant` callback to retry a request after a 401 response. Where subsequent requests should include the RPT as a bearer token.
+Most applications should use the `onGrant` callback to retry a request after a 401 response. Subsequent requests should include the RPT as a bearer token for retries.
 
 === Obtaining Entitlements
 
-The keycloak-authz.js provides a `entitlement` function that you can use to obtain a RPT from the server using the Entitlement API.
+The keycloak-authz.js library provides an `entitlement` function that you can use to obtain an RPT from the server using the Entitlement API.
 
 ```json
 authorization.entitlement('my-resource-server-id').then(function (rpt) {
-    // onGrant callback function. If authorization was successful you'll receive a RPT with the necessary permissions to access the resource server
+    // onGrant callback function. 
+    // If authorization was successful you'll receive a RPT 
+    // with the necessary permissions to access the resource server
 });
 ```
-When using the `entitlement` function, you just need to provide the _client_id_ of the resource server you want to access.
+When using the `entitlement` function, you need to provide the _client_id_ of the resource server you want to access.
 
 The `entitlement` function is completely asynchronous and supports a few callback functions in order to receive notifications from the server:
 
-* `onGrant`, is the first argument of the function. If authorization was successful and the server returned a RPT with the requested permissions, the callback will receive the RPT
-* `onDeny`, is the second argument of the function. Only called if the server has denied the authorization request
-* `onError`, is the third argument of the function. Only called if the server responds unexpectedly
+* `onGrant` - the first argument of the function. If authorization was successful and the server returned a RPT with the requested permissions, the callback will receive the RPT
+* `onDeny` - the second argument of the function. Only called if the server has denied the authorization request
+* `onError` - the third argument of the function. Only called if the server responds unexpectedly
 
 === Obtaining the RPT
 
-If you have already obtained a RPT using any of the authorization functions provided by the library, you can always obtain the RPT as follows:
+If you have already obtained a RPT using any of the authorization functions provided by the library, you can always obtain the RPT as follows from the authorization object:
 
 ```javascript
 var rpt = authorization.rpt;
