@@ -77,7 +77,7 @@ The `entitlement` function is completely asynchronous and supports a few callbac
 
 === Obtaining the RPT
 
-If you have already obtained a RPT using any of the authorization functions provided by the library, you can always obtain the RPT as follows from the authorization object:
+If you have already obtained a RPT using any of the authorization functions provided by the library, you can always obtain the RPT as follows from the authorization object (assuming that it has been initialized by one of the techniques shown earlier):
 
 ```javascript
 var rpt = authorization.rpt;
